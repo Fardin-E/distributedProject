@@ -2,6 +2,7 @@ const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
 const path = require('path');
+const { exec } = require('child_process');
 
 const app = express();
 const server = http.createServer(app);
@@ -16,16 +17,21 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-    socket.on('updateContent', ({ content, cursorPosition }) => {
-        io.emit('updateContent', { content, cursorPosition, senderSocketId: socket.id });
-    });
+    socket.on('runPython', (pythonCode) => {
+        // Save the Python code to a temporary file
+        const fileName = 'temp.py';
 
-    socket.on('sendText', (text) => {
-        io.emit('receiveText', text);
-    });
+        // Write the Python code to the file
+        require('fs').writeFileSync(fileName, pythonCode);
 
-    socket.on('updateTextInput', (text) => {
-        io.emit('updateTextInput', text);
+        // Run the Python script
+        exec(`python ${fileName}`, (err, stdout, stderr) => {
+            if (err) {
+                io.emit('pythonOutput', `Error: ${stderr}`);
+            } else {
+                io.emit('pythonOutput', stdout);
+            }
+        });
     });
 
     socket.on('disconnect', () => {

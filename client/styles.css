@@ -1,51 +1,67 @@
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #282c34;
-    color: #abb2bf;
+    background-color: #f2f2f2;
+    color: #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
 }
 
 h1 {
-    color: #61dafb;
+    color: #1f1c1c;
+    font-family: 'Marker Felt', sans-serif;
+    text-align: center; /* Center text within its container */
 }
 
 #editor-container {
     display: flex;
+    flex: 1;
 }
 
 #lineNumbers {
     width: 50px;
-    padding: 10px;
     font-size: 16px;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1e1e1e;
-    color: #abb2bf;
-    border-right: 1px solid #abb2bf;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #ffec99;
+    color: #333;
+    border-right: 1px solid #333;
+    overflow-y: scroll;
+    height: 80%;
+    text-align: right;
+    scrollbar-color: transparent transparent;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    margin-right: 1px;
 }
 
-#editor, #textInput {
+#textInput {
     flex: 1;
-    margin-left: 10px;
-    padding: 10px;
     font-size: 16px;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1e1e1e;
-    color: #abb2bf;
-    border: 1px solid #abb2bf;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background-color: #ffec99;
+    color: #333;
+    border: 1px solid #333;
+    overflow-y: scroll;
+    resize: none;
+    height: 80%;
+    box-sizing: border-box;
 }
 
 button {
     margin-top: 10px;
     padding: 10px;
     font-size: 16px;
-    background-color: #61dafb;
-    color: #282c34;
+    background-color: #88d8b0;
+    color: #fff;
     border: none;
     cursor: pointer;
 }
 
 #output {
     margin-top: 20px;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
 }

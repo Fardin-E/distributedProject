@@ -3,18 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collaborative Code Editor</title>
+    <title>Collaborative Coding Editor</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Collaborative Code Editor</h1>
+    <h1>My First Python IDE</h1>
     <div id="editor-container">
         <div id="lineNumbers"></div>
-        <div id="textInput" contenteditable="true"></div>
+        <textarea id="textInput" placeholder="Type here..." rows="4"></textarea>
     </div>
-    <button onclick="sendText()">Run</button>
+
+    <button onclick="runPython()">Run Python</button>
     <div id="output"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="client.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const lineNumbers = document.getElementById('lineNumbers');
+            const textInput = document.getElementById('textInput');
+
+            function updateLineNumbers() {
+                const lines = textInput.value.split('\n');
+                const lineNumbersHTML = lines.map((_, index) => `<div>${index + 1}</div>`).join('');
+                lineNumbers.innerHTML = lineNumbersHTML;
+            }
+
+            function syncScroll() {
+                lineNumbers.scrollTop = textInput.scrollTop;
+            }
+
+            textInput.addEventListener('input', function() {
+                updateLineNumbers();
+                syncScroll();
+            });
+
+            textInput.addEventListener('scroll', syncScroll);
+            updateLineNumbers(); // Initial update
+        });
+    </script>
 </body>
 </html>

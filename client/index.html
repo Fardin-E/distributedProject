@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collaborative Code Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Collaborative Code Editor</h1>
+    <div id="editor-container">
+        <div id="lineNumbers"></div>
+        <div id="textInput" contenteditable="true"></div>
+    </div>
+    <button onclick="sendText()">Run</button>
+    <div id="output"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>

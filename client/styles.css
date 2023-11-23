@@ -1,0 +1,51 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 0;
+    padding: 20px;
+    background-color: #282c34;
+    color: #abb2bf;
+}
+
+h1 {
+    color: #61dafb;
+}
+
+#editor-container {
+    display: flex;
+}
+
+#lineNumbers {
+    width: 50px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #abb2bf;
+    border-right: 1px solid #abb2bf;
+}
+
+#editor, #textInput {
+    flex: 1;
+    margin-left: 10px;
+    padding: 10px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
+    color: #abb2bf;
+    border: 1px solid #abb2bf;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #61dafb;
+    color: #282c34;
+    border: none;
+    cursor: pointer;
+}
+
+#output {
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+}

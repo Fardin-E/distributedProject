@@ -17,7 +17,27 @@ function runPython() {
     socket.emit('runPython', pythonCode);
 }
 
+function runC() {
+    const cCode = textInput.value;
+    socket.emit('runC', cCode);
+}
+
+function runCpp(){
+    const cppCode = textInput.value;
+    socket.emit('runCpp', cppCode);
+}
+
 socket.on('pythonOutput', (outputText) => {
+    // Display the Python script output
+    output.innerText = outputText;
+});
+
+socket.on('cOutput', (outputText) => {
+    // Display the Python script output
+    output.innerText = outputText;
+});
+
+socket.on('cppOutput', (outputText) => {
     // Display the Python script output
     output.innerText = outputText;
 });

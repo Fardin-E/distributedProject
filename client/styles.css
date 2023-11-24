@@ -1,33 +1,55 @@
 body {
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Courier New', monospace; /* Change the font to Courier New */
     margin: 0;
-    padding: 20px;
-    background-color: #f2f2f2;
-    color: #333;
+    background-color: #1e1e1e;
+    color: #ffffff;
     height: 100vh;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
 }
 
+nav {
+    background-color: #2d2d2d;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li {
+    margin-right: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+
 h1 {
-    color: #1f1c1c;
-    font-family: 'Marker Felt', sans-serif;
-    text-align: center; /* Center text within its container */
+    color: #88d8b0;
+    font-family: 'Courier New', sans-serif;
+    text-align: center;
 }
 
 #editor-container {
     display: flex;
     flex: 1;
+    margin: 0px;
 }
 
 #lineNumbers {
     width: 50px;
     font-size: 16px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #ffec99;
-    color: #333;
-    border-right: 1px solid #333;
+    font-family: 'Courier New', monospace; /* Change the font to Courier New */
+    background-color: #333;
+    color: #fff;
+    border-right: 1px solid #555;
     overflow-y: scroll;
     height: 80%;
     text-align: right;
@@ -39,29 +61,58 @@ h1 {
 }
 
 #textInput {
-    flex: 1;
+    flex: 2;
     font-size: 16px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
-    background-color: #ffec99;
-    color: #333;
-    border: 1px solid #333;
+    font-family: 'Courier New', monospace; /* Change the font to Courier New */
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
     overflow-y: scroll;
     resize: none;
     height: 80%;
     box-sizing: border-box;
+    margin: 0px;
+}
+
+#button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 button {
-    margin-top: 10px;
-    padding: 10px;
+    margin: 0 10px;
     font-size: 16px;
     background-color: #88d8b0;
-    color: #fff;
+    color: #262424;
     border: none;
     cursor: pointer;
+    min-width: 150px;
+    min-height: 40px;
 }
 
 #output {
-    margin-top: 20px;
-    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-family: 'Courier New', monospace;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    overflow-y: scroll;
+    height: auto;
+    min-height: 100px;
+    box-sizing: border-box;
+    border: 1px solid #555;
+}
+
+#languageTranslationOutput {
+    flex: 1;
+    font-size: 16px;
+    font-family: 'Courier New', monospace; /* Change the font to Courier New */
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+    overflow-y: scroll;
+    resize: none;
+    height: 80%;
+    box-sizing: border-box;
+    margin-left: 5px;
 }

@@ -7,20 +7,36 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>My First Python IDE</h1>
+    <nav>
+        <ul>
+            <li><a href="#">IDE</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Fun Ideas</a></li>
+            <li><a href="#">Help</a></li>
+        </ul>
+    </nav>
+    <h1>Coding Compiler</h1>
     <div id="editor-container">
         <div id="lineNumbers"></div>
         <textarea id="textInput" placeholder="Type here..." rows="4"></textarea>
+        <textarea readonly id="languageTranslationOutput" placeholder="Translated Comments Will Appear Here."></textarea>    </div>
+    <div id="output"></div>
+
+
+
+    <div id="button-container">
+        <button onclick="runPython()">Run Python</button>
+        <button onclick="runC()">Compile and Run C</button>
+        <button onclick="runCpp()">Compile and Run C++</button>
     </div>
 
-    <button onclick="runPython()">Run Python</button>
-    <div id="output"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
     <script src="client.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const lineNumbers = document.getElementById('lineNumbers');
             const textInput = document.getElementById('textInput');
+            const languageTranslationOutput = document.getElementById('languageTranslationOutput');
 
             function updateLineNumbers() {
                 const lines = textInput.value.split('\n');
@@ -30,6 +46,7 @@
 
             function syncScroll() {
                 lineNumbers.scrollTop = textInput.scrollTop;
+                languageTranslationOutput.scrollTop = textInput.scrollTop;
             }
 
             textInput.addEventListener('input', function() {
@@ -38,6 +55,8 @@
             });
 
             textInput.addEventListener('scroll', syncScroll);
+            languageTranslationOutput.addEventListener('scroll', syncScroll);
+
             updateLineNumbers(); // Initial update
         });
     </script>

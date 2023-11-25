@@ -22,7 +22,7 @@ ul {
 }
 
 li {
-    margin-right: 20px;
+    margin-right: 50px;
 }
 
 a {
@@ -39,9 +39,12 @@ h1 {
 
 #editor-container {
     display: flex;
-    flex: 1;
-    margin: 0px;
+    height: 100%; /* Set the height to fill the entire container */
+    margin-bottom: -100px; /* Adjust the negative margin as needed */
+    margin-left: 40px;
+    margin-right: 40px;
 }
+
 
 #lineNumbers {
     width: 50px;
@@ -98,9 +101,14 @@ button {
     padding: 10px;
     overflow-y: scroll;
     height: auto;
-    min-height: 100px;
+    min-height: 150px;
     box-sizing: border-box;
     border: 1px solid #555;
+}
+
+#console {
+    margin-right: 40px;
+    margin-left: 40px;
 }
 
 #languageTranslationOutput {
@@ -115,4 +123,30 @@ button {
     height: 80%;
     box-sizing: border-box;
     margin-left: 5px;
+    scrollbar-color: transparent transparent;
+    scrollbar-width: thin;
+    -ms-overflow-style: none;
+}
+#lineNumbers::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+#lineNumbers::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the thumb (handle) transparent */
+}
+
+#lineNumbers::-webkit-scrollbar-track {
+    background-color: transparent; /* Make the track (the area the thumb moves along) transparent */
+}
+
+#languageTranslationOutput::-webkit-scrollbar {
+    width: 12px; /* Set the width of the scrollbar */
+}
+
+#languageTranslationOutput::-webkit-scrollbar-thumb {
+    background-color: transparent; /* Make the thumb (handle) transparent */
+}
+
+#languageTranslationOutput::-webkit-scrollbar-track {
+    background-color: transparent; /* Make the track (the area the thumb moves along) transparent */
 }

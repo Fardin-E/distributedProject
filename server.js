@@ -36,7 +36,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('runC', (cCode) => {
-        console.log("server.js runC");
         // Save the C code to a temporary file
         const fileName = 'temp.c';
         fs.writeFileSync(fileName, cCode);
@@ -46,7 +45,6 @@ io.on('connection', (socket) => {
     });
 
     socket.on('runCpp', (cppCode) => {
-        console.log("server.js runCpp");
         // Save the C++ code to a temporary file
         const fileName = 'temp.cpp';
         fs.writeFileSync(fileName, cppCode);

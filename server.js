@@ -64,7 +64,10 @@ io.on('connection', (socket) => {
     socket.on('runCodeCompletion', async (userCode) => {
         try {
             const completion = await openai.chat.completions.create({
-                messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: userCode }],
+                messages: [
+                { role: 'system', content: 'You are a helpful assistant.' }, 
+                { role: 'user', content: userCode }
+                ],
                 model: 'gpt-3.5-turbo',
             });
 

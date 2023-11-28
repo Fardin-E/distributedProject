@@ -1,3 +1,5 @@
+require('dotenv').config();
+const { OpenAI } = require('openai');
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -18,7 +20,12 @@ app.get('/', (req, res) => {
 io.on('connection', (socket) => {
     console.log('A user connected');
 
-    socket.on('runPython', (pythonCode) => {
+    const openai = new OpenAI({
+        key: process.env.OPENAI_API_KEY,
+        // Other configuration options if needed
+    });
+
+    socket.on('runPython', async (pythonCode) => {
         // Save the Python code to a temporary file
         const fileName = 'temp.py';
 
@@ -53,12 +60,28 @@ io.on('connection', (socket) => {
         compileAndRun('g++', fileName, 'temp', io, 'cppOutput');
     });
 
+    // Change this line
+    socket.on('runCodeCompletion', async (userCode) => {
+        try {
+            const completion = await openai.chat.completions.create({
+                messages: [{ role: 'system', content: 'You are a helpful assistant.' }, { role: 'user', content: userCode }],
+                model: 'gpt-3.5-turbo',
+            });
+
+            const aiResponse = completion.choices[0].message.content;
+            io.emit('codeCompletionOutput', aiResponse);
+        } catch (error) {
+            console.error('Error during code completion:', error);
+            io.emit('codeCompletionOutput', 'Error during code completion.');
+        }
+    });
+
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

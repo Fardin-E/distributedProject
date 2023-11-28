@@ -27,17 +27,23 @@ function runCpp(){
     socket.emit('runCpp', cppCode);
 }
 
+function runCodeCompletion() {
+    const userCode = textInput.value;
+    socket.emit('runCodeCompletion', userCode);
+}
+
 socket.on('pythonOutput', (outputText) => {
-    // Display the Python script output
-    output.innerText = outputText;
+    output.innerText = `Python Output:\n${outputText}`;
 });
 
 socket.on('cOutput', (outputText) => {
-    // Display the Python script output
-    output.innerText = outputText;
+    output.innerText = `C Output:\n${outputText}`;
 });
 
 socket.on('cppOutput', (outputText) => {
-    // Display the Python script output
-    output.innerText = outputText;
+    output.innerText = `C++ Output:\n${outputText}`;
+});
+
+socket.on('codeCompletionOutput', (completionOutput) => {
+    output.innerText = `Code Completion Output:\n${completionOutput}`;
 });

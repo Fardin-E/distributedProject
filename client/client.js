@@ -1,5 +1,6 @@
 const textInput = document.getElementById('textInput');
 const output = document.getElementById('output');
+const languageTranslationOutput = document.getElementById('languageTranslationOutput')
 const socket = io();
 
 // Update text input as someone types
@@ -72,17 +73,3 @@ function translateComments() {
 socket.on('translationOutput', (translation) => {
     languageTranslationOutput.value = translation;
 });
-
-function translateComments() {
-    const languageDropdown = document.getElementById('languageDropdown');
-    const selectedLanguage = languageDropdown.value;
-    const pythonCode = textInput.value;
-
-    // Send a request to the server to translate comments
-    socket.emit('translateComments', { language: selectedLanguage, pythonCode });
-}
-
-socket.on('translationOutput', (translation) => {
-    languageTranslationOutput.value = translation;
-});
-

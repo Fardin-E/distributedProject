@@ -83,7 +83,7 @@ h1 {
     margin-top: 10px;
 }
 
-button {
+button, #languageDropdown {
     margin: 0 10px;
     font-size: 16px;
     background-color: #88d8b0;
@@ -92,6 +92,10 @@ button {
     cursor: pointer;
     min-width: 150px;
     min-height: 40px;
+}
+
+#languageDropdown{
+    text-align: center;
 }
 
 #output {
@@ -149,4 +153,41 @@ button {
 
 #languageTranslationOutput::-webkit-scrollbar-track {
     background-color: transparent; /* Make the track (the area the thumb moves along) transparent */
+}
+
+.main-title {
+    color: #88d8b0;
+    font-family: 'Courier New', sans-serif;
+    text-align: center;
+}
+
+.coding-ideas {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+
+.category {
+    margin-bottom: 20px;
+}
+
+.category-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #88d8b0;
+}
+
+.idea-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.idea-list li {
+    margin-bottom: 10px;
+}
+
+.fun-reminder {
+    text-align: center;
+    margin-top: 20px;
 }

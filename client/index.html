@@ -10,8 +10,7 @@
     <nav>
         <ul>
             <li><a href="#">IDE</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Fun Ideas</a></li>
+            <li><a href="funideas.html">Fun Ideas</a></li>
             <li><a href="#">Help</a></li>
         </ul>
     </nav>
@@ -31,6 +30,13 @@
         <button onclick="runPython()">Run Python</button>
         <button onclick="runC()">Compile and Run C</button>
         <button onclick="runCpp()">Compile and Run C++</button>
+        <button onclick="runCodeCompletion()">Run Code Completion</button> 
+        <button onclick="runCommentTranslation()">Translate Comments to Specified Language</button> 
+        <select id="languageDropdown">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>

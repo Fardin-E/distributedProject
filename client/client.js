@@ -85,3 +85,4 @@ function translateComments() {
 socket.on('translationOutput', (translation) => {
     languageTranslationOutput.value = translation;
 });
+

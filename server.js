@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
@@ -7,6 +8,8 @@ const fs = require('fs');
 const app = express();
 const server = http.createServer(app);
 const io = socketIO(server);
+const { OpenAI } = require('openai');
+
 
 
 const errorCodeSuggestionInstruction = `
@@ -32,6 +35,7 @@ Maintain the line numbers and comment symbols (e.g., # or //). do not keep the o
 === Code ===
 [CODE_WITH_COMMENTS]
 `
+
 app.use(express.static(path.join(__dirname, 'client')));
 
 app.get('/', (req, res) => {
@@ -61,8 +65,6 @@ io.on('connection', (socket) => {
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
-
-
 
     socket.on('runPython', async (pythonCode) => {
         // Save the Python code to a temporary file
@@ -139,18 +141,20 @@ io.on('connection', (socket) => {
             io.emit('codeCompletionOutput', 'Error during code completion.');
         }
     });
-
-    
-
     socket.on('disconnect', () => {
         console.log('User disconnected');
     });
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+const pm2Instance = process.env.NODE_APP_INSTANCE || 0;
+const pm2Port = PORT + parseInt(pm2Instance, 10);
+
+server.listen(pm2Port, () => {
+    console.log(`Server is running on port ${pm2Port} with PM2 instance ${pm2Instance}`);
 });
+
+
 
 function compileAndRun(compiler, inputFileName, outputFileName, io, outputEvent) {
     // Compile the code
@@ -169,3 +173,5 @@ function compileAndRun(compiler, inputFileName, outputFileName, io, outputEvent)
         }
     });
 }
+
+

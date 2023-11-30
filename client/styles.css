@@ -92,13 +92,14 @@ button, #languageDropdown {
     cursor: pointer;
     min-width: 150px;
     min-height: 40px;
+    display:flex;
 }
 
 #languageDropdown{
     text-align: center;
 }
 
-#output {
+#output, #codeCompletionResult {
     font-family: 'Courier New', monospace;
     background-color: #333;
     color: #fff;
@@ -108,23 +109,17 @@ button, #languageDropdown {
     min-height: 150px;
     box-sizing: border-box;
     border: 1px solid #555;
+    display:flex;
 }
 
-#codeCompletionResult {
-    font-family: 'Courier New', monospace;
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
-    overflow-y: scroll;
-    height: auto;
-    min-height: 150px;
-    box-sizing: border-box;
-    border: 1px solid #555;
-}
 
-#console {
+#console, #aiConsole  {
     margin-right: 40px;
     margin-left: 40px;
+}
+
+#codeCompletionResult{
+    width: 100%;
 }
 
 #languageTranslationOutput {

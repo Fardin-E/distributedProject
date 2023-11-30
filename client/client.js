@@ -1,6 +1,7 @@
 const textInput = document.getElementById('textInput');
 const output = document.getElementById('output');
 const languageTranslationOutput = document.getElementById('languageTranslationOutput')
+const aiResponse = document.getElementById('codeCompletionResult')
 const socket = io();
 
 // Update text input as someone types
@@ -30,7 +31,7 @@ function runCpp(){
 
 function runCodeCompletion() {
     const userCode = textInput.value;
-    socket.emit('runCodeCompletion', userCode);
+    socket.emit('runCodeCompletion', { userCode } );
 }
 
 function runCommentTranslation() {
@@ -44,6 +45,10 @@ function runCommentTranslation() {
 
 socket.on('translationOutput', (translation) => {
     languageTranslationOutput.value = translation;
+});
+
+socket.on('codeCompletionOutput', (completeResult) => {
+    aiResponse.value = completeResult;
 });
 
 socket.on('pythonOutput', (outputText) => {

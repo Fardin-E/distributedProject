@@ -14,7 +14,6 @@ const Server = require('socket.io-client');
 const Server2 = new Server('http://localhost:3000');
 
 
-
 const languageTranslationInstruction = `Translate the comments in the provided code to [DESTINATION_LANGUAGE]. 
 Maintain the line numbers and comment symbols (e.g., # or //). do not keep the orignal code in the output, just the comments.
  Some comments will have the words connected to the // or # like this: //hello. make sure to watch for this and translate as well. take the text and directly translate the meaning to the destination language.

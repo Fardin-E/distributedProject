@@ -48,15 +48,15 @@ io.on('connection', (socket) => {
 
     //relay to server 2 and 3
     socket.on('commentTranslation', ({ language, codeWithComments }) => {
-        console.log("Language");
+        console.log("Language sent for translation");
         server2.emit('commentTranslation', { language, codeWithComments });
-        console.log("Language done");
+        console.log("Language translation done");
     });
 
-    socket.on('runCodeCompletion', ({ language, codeWithComments }) => {
-        console.log("Code");
-        server3.emit('runCodeCompletion', { language, codeWithComments });
-        console.log("Code done");
+    socket.on('runCodeCompletion', ({ userCode }) => {
+        console.log("Code Sent");
+        server3.emit('runCodeCompletion', { userCode });
+        console.log("Error suggestions returned");
     });
 
     socket.on('runPython', async (pythonCode) => {

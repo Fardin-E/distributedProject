@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const http = require('http');
 const socketIO = require('socket.io');
+<<<<<<< Updated upstream
 const path = require('path');
 const { exec } = require('child_process');
 const fs = require('fs');
@@ -59,6 +60,19 @@ io.on('connection', (socket) => {
             console.error('Error during translation:', error);
             io.emit('translationOutput', 'Error during translation.');
         }
+=======
+const app = express();
+const server = http.createServer(app);
+const io = socketIO(server);
+
+io.on('connection', (socket) => {
+    console.log('Connected to Server 2');
+
+    socket.on('commentTranslation', async ({ language, codeWithComments }) => {
+        // Implement comment translation logic using OpenAI or any other service
+        // Emit translation results back to Server 1
+        // ...
+>>>>>>> Stashed changes
     });
 
     socket.on('disconnect', () => {
@@ -67,6 +81,7 @@ io.on('connection', (socket) => {
 });
 
 // Listen to a port for Server 2
+<<<<<<< Updated upstream
 const PORT = 3001; // Set your preferred port number
 server2.listen(PORT, () => {
     console.log(`Server 2 is running on port ${PORT}`);
@@ -76,3 +91,9 @@ server2.listen(PORT, () => {
 Server2.on('translationOutput', (translationOutput) => {
     io.emit('translationOutput', translationOutput);
 });
+=======
+const PORT = 4000; // Set your preferred port number
+server.listen(PORT, () => {
+    console.log(`Server 2 is running on port ${PORT}`);
+});
+>>>>>>> Stashed changes

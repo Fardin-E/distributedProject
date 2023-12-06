@@ -45,18 +45,21 @@ Before you begin, ensure you have the following dependencies installed:
    - Terminal 1 (Server 1):
 
      ```bash
+     cd distributedProject-main
      node server1.js
      ```
 
    - Terminal 2 (Server 2):
 
      ```bash
+     cd distributedProject-main
      node translationServer.js
      ```
 
    - Terminal 3 (Server 3):
 
      ```bash
+     cd distributedProject-main
      node compilationServer.js
      ```
 

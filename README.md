@@ -45,21 +45,21 @@ Before you begin, ensure you have the following dependencies installed:
    - Terminal 1 (Server 1):
 
      ```bash
-     cd collaborative-coding-system
+     cd collaborative-code-compiler
      node server1.js
      ```
 
    - Terminal 2 (Server 2):
 
      ```bash
-     cd collaborative-coding-system
+     cd collaborative-code-compiler
      node translationServer.js
      ```
 
    - Terminal 3 (Server 3):
 
      ```bash
-     cd collaborative-coding-system
+     cd collaborative-code-compiler
      node compilationServer.js
      ```
 

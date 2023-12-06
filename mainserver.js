@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
 
     //relay to server 2 and 3
     socket.on('commentTranslation', ({ language, codeWithComments }) => {
+        
         console.log("Language sent for translation");
         server2.emit('commentTranslation', { language, codeWithComments });
         console.log("Language translation done");

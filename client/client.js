@@ -38,8 +38,6 @@ function runCommentTranslation() {
     const languageDropdown = document.getElementById('languageDropdown');
     const selectedLanguage = languageDropdown.value;
     const codeWithComments = textInput.value;
-
-    // Send a request to the server to translate comments
     socket.emit('commentTranslation', { language: selectedLanguage, codeWithComments });
 }
 
@@ -66,15 +64,3 @@ socket.on('cppOutput', (outputText) => {
     output.innerText = outputText;
 });
 
-function translateComments() {
-    const languageDropdown = document.getElementById('languageDropdown');
-    const selectedLanguage = languageDropdown.value;
-    const pythonCode = textInput.value;
-
-    // Send a request to the server to translate comments
-    socket.emit('translateComments', { language: selectedLanguage, pythonCode });
-}
-
-socket.on('translationOutput', (translation) => {
-    languageTranslationOutput.value = translation;
-});

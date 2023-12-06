@@ -22,7 +22,7 @@ Maintain the line numbers and comment symbols (e.g., # or //). do not keep the o
  keep the vertical spacing the same as the original: if there are 5 lines after a comment in the original before the next comment, 
  add 5 empty lines after to keep it consistent with the original structure of comments, even if destination language is same as original.
  do not translate the code. replace the lines of code with empty string, even in the string within the code inside double quotations.
- only return comments and absolutely no actual code.
+ only return comments and absolutely no actual code. ABSOLUTELY DO NOT TRANSLATE LINES OF ACTUAL CODE.
 
 === Code ===
 [CODE_WITH_COMMENTS]
@@ -71,7 +71,3 @@ server2.listen(PORT, () => {
     console.log(`Server 2 is running on port ${PORT}`);
 });
 
-
-Server2.on('translationOutput', (translationOutput) => {
-    io.emit('translationOutput', translationOutput);
-});

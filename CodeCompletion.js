@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
     socket.on('runCodeCompletion', async (userCode) => {
         console.log("User code:", userCode);
         const prompt = errorCodeSuggestionInstruction
-        .replace("[USER_CODE]", userCode);
+        .replace("[USER_CODE]", JSON.stringify(userCode) );
         try {
             const completion = await openai.chat.completions.create({
                 messages: [

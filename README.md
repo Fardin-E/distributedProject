@@ -1,6 +1,6 @@
-# Collaborative Coding Compiler
+# Collaborative Code Compiler
 
-The Collaborative Coding Compiler is a set of servers and a web-based IDE that allows users to collaboratively edit code, run code completion, and translate comments to different languages. It is designed to provide a seamless coding experience with real-time collaboration and helpful AI-powered features.
+The Collaborative Code Compiler is a set of servers and a web-based IDE that allows users to collaboratively edit code, run code completion, and translate comments to different languages. It is designed to provide a seamless coding experience with real-time collaboration and helpful AI-powered features.
 
 ## Table of Contents
 - [Getting Started](#getting-started)

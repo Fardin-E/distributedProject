@@ -40,13 +40,28 @@ Before you begin, ensure you have the following dependencies installed:
 
 ### Running the Servers
 
-1. Navigate to the project directory and start the main server:
+1. Open three terminals to run the individual servers:
 
-   ```bash
-   npm start
-   ```
+   - Terminal 1 (Server 1):
 
-   This command will launch Server 1, Server 2, and Server 3.
+     ```bash
+     cd collaborative-coding-system
+     node server1.js
+     ```
+
+   - Terminal 2 (Server 2):
+
+     ```bash
+     cd collaborative-coding-system
+     node translationServer.js
+     ```
+
+   - Terminal 3 (Server 3):
+
+     ```bash
+     cd collaborative-coding-system
+     node compilationServer.js
+     ```
 
 2. The servers will be running on the specified ports (3000, 3001, 3002).
 
